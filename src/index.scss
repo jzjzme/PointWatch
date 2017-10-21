@@ -1,0 +1,19 @@
+@import "./styles/base";
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  line-height: 1.3em;
+}
+
+html {
+  box-sizing: border-box;
+  font: {
+    family: Helvetica, Arial, sans-serif;
+    size: $font-size--normal;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

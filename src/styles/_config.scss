@@ -1,0 +1,51 @@
+
+$golden-ratio: 1.618;
+
+$multiplier--xsmall: 1 / pow($golden-ratio, 2);
+$multiplier--small:  1 / $golden-ratio;
+$multiplier--medium: $golden-ratio;
+$multiplier--large:  pow($golden-ratio, 2);
+$multiplier--xlarge: pow($golden-ratio, 3);
+
+
+$color--white:            #FFFFFF;
+$color--light-gray:       #EAEAEA;
+$color--yellow-pale:      #FFFF8E;
+$color--green:            #30C579;
+$color--green-warm:       lighten(adjust-hue($color--green, -45deg), 20%);
+$color--capital-one-blue: #004977;
+
+// Font sizing
+$font-size: 15px;
+
+$font-size--xsmall: $multiplier--xsmall * $font-size;
+$font-size--small:  $multiplier--small * $font-size;
+$font-size--normal: $font-size;
+$font-size--medium: $multiplier--medium * $font-size;
+$font-size--large:  $multiplier--large * $font-size;
+
+// Horizontal spacing
+$horizontal-spacing: $font-size * 0.9;
+
+$horizontal-spacing--xsmall: $multiplier--xsmall * $horizontal-spacing;
+$horizontal-spacing--small:  $multiplier--small * $horizontal-spacing;
+$horizontal-spacing--normal: $horizontal-spacing;
+$horizontal-spacing--medium: $multiplier--medium * $horizontal-spacing;
+$horizontal-spacing--large:  $multiplier--large * $horizontal-spacing;
+$horizontal-spacing--xlarge:  $multiplier--xlarge * $horizontal-spacing;
+
+// Vertical spacing
+$vertical-spacing: $font-size * 0.9;
+
+$vertical-spacing--xsmall: $multiplier--xsmall * $vertical-spacing;
+$vertical-spacing--small:  $multiplier--small * $vertical-spacing;
+$vertical-spacing--normal: $vertical-spacing;
+$vertical-spacing--medium: $multiplier--medium * $vertical-spacing;
+$vertical-spacing--large:  $multiplier--large * $vertical-spacing;
+$vertical-spacing--xlarge:  $multiplier--xlarge * $vertical-spacing;
+
+// Inputs
+$input--height: $font-size--normal + $vertical-spacing--small * 2;
+
+// Navigation
+$navigation--height: 60px;

@@ -1,0 +1,16 @@
+
+@import "../../styles/base";
+
+.input {
+  -webkit-appearance: none;
+  height: $input--height;
+  border-radius: 50px;
+  border: 1px solid $color--light-gray;
+  box-sizing: border-box;
+  padding: $horizontal-spacing--small $vertical-spacing--normal;
+  min-width: 180px;
+
+  &:focus {
+    outline: none;
+  }
+}
