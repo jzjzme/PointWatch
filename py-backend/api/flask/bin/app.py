@@ -5,9 +5,9 @@ from pyflights import PyFlight
 import json
 
 app = Flask(__name__)
-flight = PyFlight(api_key='AIzaSyBNFMQ6w1pnPwjAudfZw-iliHUucHRxqiA')
+flight = PyFlight(api_key=' ')#no API key because public repositiory
 
-@app.route('/search', methods=['GET'])
+@app.route('/search', methods=['GET']) #search for flights
 def search():
 	# examples parameters:
 	# adults = 1
@@ -43,6 +43,10 @@ def search():
 	        sort_keys=True, indent=4, separators=(',',': '))
     
 	return output
+
+@app.route('/transaction', methods=['GET']) #VISA direct transaction to 
+def purchase():
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
