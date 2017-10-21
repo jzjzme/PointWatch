@@ -1,0 +1,39 @@
+
+@import "../../styles/base";
+
+.card {
+  background-color: $color--white;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.3);
+  padding: $vertical-spacing--medium $horizontal-spacing--large; 
+
+  & + & {
+    margin-top: $vertical-spacing--normal;
+  }
+
+  h1 {
+    @extend %h1;
+
+    color: $color--dark-gray;
+  }
+
+  h2 {
+    @extend %h2;
+    
+    color: $color--gray;
+  }
+
+  p {
+    color: $color--gray;
+  }
+}
+
+.cardGroup {
+  position: relative;
+  z-index: 1;
+  width: 650px;
+  margin: auto {
+    top: $vertical-spacing--large;
+    bottom: $vertical-spacing--medium;
+  }
+}

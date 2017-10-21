@@ -1,0 +1,19 @@
+
+@import "../../styles/base";
+
+.pointsAvailable {
+  color: $color--dark-gray !important;
+}
+
+.points {
+  color: $color--green;
+}
+
+.cardColWrap {
+  display: flex;
+  align-items: center;
+}
+
+.cardCol1 {
+  flex-grow: 1;
+}
