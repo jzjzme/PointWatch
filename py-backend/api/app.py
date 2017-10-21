@@ -4,7 +4,7 @@ from pyflights import PyFlight
 import json
 
 app = Flask(__name__)
-flight = PyFlight(api_key='AIzaSyBNFMQ6w1pnPwjAudfZw-iliHUucHRxqiA')
+flight = PyFlight(api_key='')
 
 
 @app.route('/')
