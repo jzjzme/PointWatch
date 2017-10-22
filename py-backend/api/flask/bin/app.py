@@ -51,7 +51,7 @@ def search():
 def screen():
 	self.visa_api_client = VisaAPIClient() #sample data, real data will be read via JSON
 		self.watch_list_inquiry = json.loads(''' { 
-			"acquirerCountryCode": "840",
+			"acquirerCountryCode": "101",
 			"acquiringBin": "408999",
 			"address": {
 				"city": "San Francisco",
@@ -62,6 +62,7 @@ def screen():
 				}''')
 
 def purchase():
+	purchaseType = requests.args.get('type')
 	date = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S") #visa direct transaction
 		self.visa_api_client = VisaAPIClient()
 		self.push_funds_request = json.loads('''{
@@ -72,14 +73,14 @@ def purchase():
 			"acquirerCountryCode": "101",
 			"senderAccountNumber": "1234567890123456",
 			"transactionCurrencyCode": "USD",
-			"senderName": "John Smith",
+			"senderName": "Jackie Zhang",
 			"senderCountryCode": "USA",
 			"senderAddress": "44 Market St.",
 			"senderCity": "San Francisco",
 			"senderStateCode": "CA",
 			"recipientName": "Adam Smith",
 			"recipientPrimaryAccountNumber": "4957030420210454",
-			"amount": "112.00",
+			"amount": "200.00",
 			"businessApplicationId": "AA",
 			"transactionIdentifier": 234234322342343,
 			"merchantCategoryCode": 6012,
@@ -98,9 +99,14 @@ def purchase():
 			"feeProgramIndicator": "123"
 			}''')
 
-@app.route('/offers', methods=['GET']) #VISA Offers available to use
+		#store type of purchase flight, etc.
+
+@app.route('/seller', methods=['GET']) #VISA Offers available to use
 
 def offers():
+	#find offers from VISA offers API
+	#Nothing here
 
+	
 if __name__ == '__main__':
 	app.run(debug=True)
