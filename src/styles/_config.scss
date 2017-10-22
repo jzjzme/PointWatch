@@ -10,6 +10,8 @@ $multiplier--xlarge: pow($golden-ratio, 3);
 
 $color--white:            #FFFFFF;
 $color--light-gray:       #EAEAEA;
+$color--gray:             #A1A1A1;
+$color--dark-gray:        #323232;
 $color--yellow-pale:      #FFFF8E;
 $color--green:            #30C579;
 $color--green-warm:       lighten(adjust-hue($color--green, -45deg), 20%);
