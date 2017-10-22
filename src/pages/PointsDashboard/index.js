@@ -112,9 +112,10 @@ export default class PointsDashboard extends Component {
                       <img src={cardImage} className={styles.cardImage} />
                       <div className={styles.cardCol1}>
                         <h2 className={styles.pointsAvailable}>{accountDisplayName}</h2>
+                        <label className={styles.label}>Capital One Visaplatinum Miles *3582</label>
                         <label className={styles.label}><span className={styles.points}>{rewardsBalance}</span> Points Available</label>
                         <label className={styles.label}><span className={styles.points}>5000</span> Points in Market</label>
-                        <label className={styles.label}>EXPIRING SOON!</label>
+                        <label className={styles.label}>EXPIRING IN 5 DAYS!</label>
                         <div className={styles.keyline} />
                       <PillButton className={styles.usePointsButton} onClick={() => this.selectRewardsAccount(accountDisplayName)}>Use Points Now!</PillButton>
                       </div>
@@ -157,11 +158,13 @@ export default class PointsDashboard extends Component {
 
                 } else {
                   return (
-                    <div key={accountDisplayName} className={styles.cardColWrap}>
+                    <div key={"accountDisplayName"} className={styles.cardColWrap}>
                       <img src={cardImage2} className={styles.cardImage} />
                       <div className={styles.cardCol1}>
                         <h2 className={styles.pointsAvailable}>{accountDisplayName}</h2>
+                        <label className={styles.label}>Capital One partner: KrisFlyer Airlines Rewards</label>
                         <label className={styles.label}><span className={styles.points}>{rewardsBalance}</span> Points Available</label>
+                        <label className={styles.label}><span className={styles.points}>0</span> Points in Market</label>
                         <div className={styles.keyline} />
                       <PillButton className={styles.usePointsButton} onClick={() => this.selectRewardsAccount(accountDisplayName)}>Use Points Now!</PillButton>
                       </div>
