@@ -1,0 +1,178 @@
+
+@import "../../styles/base";
+
+.searchHeader {
+  padding: {
+    top: $vertical-spacing--large;
+    bottom: $vertical-spacing--xlarge;
+  }
+  margin-bottom: -($vertical-spacing--xlarge + $vertical-spacing--medium);
+  color: $color--white;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+
+  &:before {
+    background: {
+      color: $color--green;
+      image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0) 90%), url("../../img/singapore.jpg");
+      size: cover;
+      position: center;
+      repeat: no-repeat;
+    }
+    filter: grayscale(100%) contrast(1) brightness(0.6);
+    mix-blend-mode: multiply;
+  }
+
+  &:after {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  label {
+    color: rgba($color--white, 0.85);
+  }
+}
+
+.header {
+  text-shadow: 0 1px 1px rgba(darken($color--green, 35%), 0.3);
+}
+
+.keyline {
+  display: inline-block;
+  height: 1px;
+  width: 40px;
+  background-color: $color--light-gray;
+  margin: {
+    top: $vertical-spacing--large;
+    bottom: $vertical-spacing--medium;
+  }
+}
+
+.searchDetails {
+  display: flex;
+  margin-bottom: $vertical-spacing--medium;
+}
+
+.flightContainer {
+  padding: 0;
+  overflow: hidden;
+}
+
+.flight {
+  transition: all 0.1s ease-in-out, height 0.3s ease-in-out;
+  display: flex;
+  cursor: pointer;
+  color: $color--dark-gray;
+  padding: $vertical-spacing--medium $horizontal-spacing--large;
+  text-decoration: none;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    background-color: darken($color--white, 2%);
+  }
+
+  &.sSelected {
+    min-height: 420px;
+    background-color: darken($color--white, 2%);
+    cursor: initial;
+
+    .data {
+      display: none;
+    }
+
+    .hiddenData {
+      opacity: 1;
+      pointer-events: initial;
+      transition-delay: 0.5s;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  & + & {
+    border-top: 1px solid $color--light-gray;
+  }
+}
+
+.hiddenData {
+  transition: all 0.1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: $vertical-spacing--medium $horizontal-spacing--large;
+  opacity: 0;
+  transform: translate3d(0, -10px, 0);
+  pointer-events: none;
+}
+
+.hiddenDataItem {
+  margin-bottom: $vertical-spacing--medium;
+}
+
+.hiddenButton {
+  float: right;
+}
+
+.data {
+  & + & {
+    margin-left: $horizontal-spacing--medium;
+  }
+}
+
+.passengerInfo {
+  h1 {
+    text-align: center;
+    margin-bottom: $vertical-spacing--xlarge;
+  }
+}
+
+.input {
+  flex-grow: 1;
+  font-family: $font-family--sans-serif;
+
+  &.mSelect {
+    height: $input--height;
+    border-radius: 50px;
+    border: 1px solid $color--light-gray;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & + & {
+    margin-left: $horizontal-spacing--normal;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  width: 400px;
+  align-items: center;
+  margin: auto;
+
+  & + & {
+    margin-top: $vertical-spacing--medium;
+  }
+
+  &:last-of-type {
+    margin-bottom: $vertical-spacing--large;
+  }
+}
+
+.checkoutButton {
+  position: absolute;
+  top: calc(100% + #{$vertical-spacing--medium});
+  right: 0;
+}
