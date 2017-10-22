@@ -12,5 +12,7 @@
 
   &:focus {
     outline: none;
+
+    border-color: $color--dark-gray;
   }
 }

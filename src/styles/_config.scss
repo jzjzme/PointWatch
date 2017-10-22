@@ -26,6 +26,8 @@ $font-size--normal: $font-size;
 $font-size--medium: $multiplier--medium * $font-size;
 $font-size--large:  $multiplier--large * $font-size;
 
+$font-family--sans-serif: Helvetica, Arial, sans-serif;
+
 // Horizontal spacing
 $horizontal-spacing: $font-size * 0.9;
 
