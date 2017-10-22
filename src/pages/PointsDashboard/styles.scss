@@ -7,6 +7,7 @@
 
 .points {
   color: $color--green;
+  font-weight: bold;
 }
 
 .cardColWrap {
@@ -16,4 +17,69 @@
 
 .cardCol1 {
   flex-grow: 1;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: $vertical-spacing--medium;
+}
+
+.tab {
+  border: 1px solid $color--green;
+  color: $color--green;
+  padding: $vertical-spacing--xsmall $horizontal-spacing--normal;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+
+  &:first-of-type {
+    border-radius: 4px 0 0 4px;
+  }
+
+  &:last-of-type {
+    border-radius: 0 4px 4px 0;
+  }
+
+  &.sActive {
+    background-color: $color--green;
+    color: $color--white;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: 0;
+  }
+}
+
+.label {
+  margin-bottom: $vertical-spacing--normal;
+  display: block;
+}
+
+.cardImage {
+  height: 45px;
+  margin-right: $horizontal-spacing--medium;
+  align-self: flex-start;
+}
+
+.usePointsButton {
+  margin-bottom: $vertical-spacing--normal;
+}
+
+.keyline {
+  display: inline-block;
+  height: 1px;
+  width: 40px;
+  background-color: $color--light-gray;
+  margin: {
+    top: $vertical-spacing--large;
+    bottom: $vertical-spacing--medium;
+  }
+}
+
+.cta {
+  margin-left: $horizontal-spacing--normal;
+  text-align: right;
 }

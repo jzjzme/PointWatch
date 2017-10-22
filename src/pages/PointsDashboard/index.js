@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import { stringify } from 'query-string'
-import { Page, Card, CardGroup, Loading } from 'components'
+import { Page, Card, CardGroup, Loading, PillButton, PillInput } from 'components'
 import { clientID, clientSecret } from 'utils'
+import cardImage from "../../img/platinum-card.png"
 import styles from "./styles.scss"
 
-@observer @inject('store')
+@inject('store') @observer
 export default class PointsDashboard extends Component {
   state = {
     loading: true
   }
 
   async componentDidMount() {
-    const { access_token, refresh_token } = await this.authorize()
+    const { access_token, refresh_token } = await this.authorize() // eslint-disable-line
     // console.log('ACCESS TOKEN: ', access_token)
     const { bank } = this.props.store
     await bank.getRewardsAccounts()
@@ -43,8 +44,19 @@ export default class PointsDashboard extends Component {
     // curl //   -i -k --tlsv1 //   -H "Content-Type:application/x-www-form-urlencoded" //   -d "code=4cb656c112df460cb4821cf7787c553b&client_id=enterpriseapi-sb-tJOw55ype3LktRNB5zY7oIHq&client_secret=175384eb1888f2dded491e8d7242398f0c5901db&grant_type=authorization_code&redirect_uri=https://developer.capitalone.com/products/playground" //   -X POST https://api-sandbox.capitalone.com/oauth2/token
   }
 
+  selectRewardsAccount (displayName) {
+    this.setState({ selectedRewardsAccount: displayName })
+  }
+
+  setPointsToSell (number) {
+    this.setState({pointsToSell: number})
+  }
+
+  pointsToSell = 0
+
   render () {
     const { rewardsAccountsDetails } = this.props.store.bank
+    const { selectedRewardsAccount, pointsToSell } = this.state
     if (this.state.loading) return <Loading />
     return (
       <Page>
@@ -54,11 +66,51 @@ export default class PointsDashboard extends Component {
             <p>This is where you can view and sell the points you have available.</p>
           </Card>
           <Card>
-            {rewardsAccountsDetails.map(({ accountDisplayName, rewardsBalance }) => (
-              <div key={accountDisplayName}>
-                <div>Your account <b>{accountDisplayName}</b> has <b>{rewardsBalance}</b> points available</div>
-              </div>
-            ))}
+            {rewardsAccountsDetails.map(({ accountDisplayName, rewardsBalance }) => {
+              if (accountDisplayName === selectedRewardsAccount) {
+                return (
+                  <div>
+                    <div className={styles.tabs}>
+                      <div className={`${styles.tab} ${styles.sActive}`}>Sell</div>
+                      <div className={styles.tab}>Redeem</div>
+                    </div>
+                    <div key={accountDisplayName} className={styles.cardColWrap}>
+                      <img src={cardImage} className={styles.cardImage} />
+                      <div className={styles.cardCol1}>
+                        { !pointsToSell &&
+                          <label className={styles.label}>How many points would you like to sell?</label>
+                        }
+                        { pointsToSell &&
+                          <label className={styles.label}>You can make <span className={styles.points}>${Math.round(pointsToSell * 1.5) / 100}</span>!</label>
+                        }
+                        <PillInput
+                          placeholder={`Out of ${rewardsBalance}`}
+                          value={pointsToSell || rewardsBalance}
+                          onChange={({ target: { value } }) => {
+                            this.setPointsToSell(value)
+                          }} />
+                      </div>
+                      <div className={styles.cta}>
+                        <PillButton disabled={!pointsToSell} to={`/points-dashboard/sell-points?points=${pointsToSell || rewardsBalance}`}>Sell {pointsToSell} Points</PillButton>
+                      </div>
+                    </div>
+                  </div>
+                )
+
+              } else {
+                return (
+                  <div key={accountDisplayName} className={styles.cardColWrap}>
+                    <img src={cardImage} className={styles.cardImage} />
+                    <div className={styles.cardCol1}>
+                      <h2 className={styles.pointsAvailable}>{accountDisplayName}</h2>
+                      <label className={styles.label}><span className={styles.points}>{rewardsBalance}</span> Points Available</label>
+                      <div className={styles.keyline} />
+                    <PillButton className={styles.usePointsButton} onClick={() => this.selectRewardsAccount(accountDisplayName)}>Use Points Now!</PillButton>
+                    </div>
+                  </div>
+                )
+              }
+            })}
           </Card>
         </CardGroup>
       </Page>
