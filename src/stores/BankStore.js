@@ -45,7 +45,11 @@ const fakeRewardsAccounts = {
   rewardsAccounts: [
     {
       rewardsAccountReferenceId: "+jaR3Du6APE+x4kQue7NB2l3cLJHm0Rg9qspJbY65DpNtAOoLJnAguw4SVcuOlJuWVrEIiLswYp4ZZ0NX1veFw==",
-      accountDisplayName: "Capital One Visaplatinum Miles *3582",
+<<<<<<< HEAD
+      accountDisplayName: "Capital One Rewards",
+=======
+      accountDisplayName: "Capital One Visa Platinum Miles *3582",
+>>>>>>> 035c4697f7e214f6eda5e66a812a1d851ce28973
       rewardsCurrency: "Miles",
       productAccountType: "Credit Card",
       creditCardAccount: {
@@ -58,12 +62,12 @@ const fakeRewardsAccounts = {
     },
     {
       rewardsAccountReferenceId: "+jaR3Du6APE+x4kQue7NB76pzE2EghQD5frCU8NquuYUCjno3GzJDe6bKPmH9nruRwMPivkpoT+3PCwGfwJavg==",
-      accountDisplayName: "Capital One Mastercardworldcard Points *4734",
+      accountDisplayName2: "Singapore KrisFlyer Miles *4734",
       rewardsCurrency: "Points",
       productAccountType: "Credit Card",
       creditCardAccount: {
-        issuer: "Capital One",
-        product: "Mastercardworldcard",
+        issuer: "Visa",
+        product: "Visa Infinite card",
         lastFour: "4734",
         network: "MasterCard",
         isBusinessAccount: false
@@ -87,7 +91,7 @@ const fakeRewardsAccounts = {
 
 
 const fakeRewardsAccountDetails = {
-  accountDisplayName: "Capital One Visaplatinum Miles *3582",
+  accountDisplayName: "Capital One Rewards",
   rewardsBalance: 100000,
   rewardsCurrency: "Miles",
   rewardsCurrencyDescription: "Miles",
