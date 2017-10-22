@@ -22,8 +22,7 @@ def howmanypts(users):
 
 def list_transaction(user, user2, amount, type):
 	cur = conn.cursor()
-	sql = """INSERT INTO buyer(user) 
-				"""
+	sql = """INSERT INTO buyer(user) """
 def complete_transaction(transaction_id):
 	cur = conn.cursor()
 	sql = "SELECT user FROM transaction_id FROM transactions"
@@ -39,6 +38,8 @@ def complete_transaction(transaction_id):
 	cur.execute(sql, transaction_id)
 	pts = cur.fetchone()
 	conn.commit()
+
+
 
 
 
