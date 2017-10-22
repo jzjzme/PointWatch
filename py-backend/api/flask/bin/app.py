@@ -112,7 +112,7 @@ def message():
 
 	client = nexmo.Client(key=' ', secret=' ')
 
-	response = client.send_message({'from': '12012413501', 'to': '19169908919', 'text': 'Someone wants to purchase your points! <link>'})
+	response = client.send_message({'from': '12012413501', 'to': '19169908919', 'text': 'Someone wants to purchase your points! You will receive more details on your account!'})
 
 	response = response['messages'][0]
 
