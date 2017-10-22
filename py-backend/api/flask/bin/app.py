@@ -107,6 +107,21 @@ def offers():
 	#find offers from VISA offers API
 	#Nothing here
 
+@app.route('/message') #message people about flight purchase
+def message():
+
+	client = nexmo.Client(key=' ', secret=' ')
+
+	response = client.send_message({'from': '12012413501', 'to': '19169908919', 'text': 'Someone wants to purchase your points! You will receive more details on your account!'})
+
+	response = response['messages'][0]
+
+	if response['status'] == '0':
+	  print ('Sent message', response['message-id'])
+
+	  print ('Remaining balance is', response['remaining-balance'])
+	else:
+	  print ('Error:', response['error-text'])
 	
 if __name__ == '__main__':
 	app.run(debug=True)
