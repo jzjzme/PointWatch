@@ -1,5 +1,6 @@
 export { default as Home } from './Home/Home'
-export { default as Flights } from './Flights/Flights'
+export { default as Flights } from './Flights/index'
+export { default as Checkout } from './Checkout/index'
 export { default as Login } from './Login/index'
 export { default as PointsDashboard } from './PointsDashboard/index'
 export { default as SellPoints } from './SellPoints/index'

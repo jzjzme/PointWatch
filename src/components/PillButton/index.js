@@ -5,18 +5,18 @@ import styles from "./styles.scss"
 
 export class PillButton extends Component {
   render () {
-    const { className, children, to, hollow, onClick, capitalOne } = this.props
+    const { className, children, to, hollow, onClick, capitalOne, disabled } = this.props
     const buttonClassName = `${styles.button} ${hollow && styles.mHollow} ${capitalOne && styles.mCapitalOne}`
 
     if (to) {
       return (
-        <Link to={to} className={className}>
+        <Link disabled={disabled} to={to} className={`${className} ${styles.linkWrapper}`}>
           <button className={buttonClassName}>{children}</button>
         </Link>
       )
 
     } else if (onClick) {
-      return (<button onClick={onClick} className={`${className} ${buttonClassName}`}>{children}</button>)
+      return (<button disabled={disabled} onClick={onClick} className={`${className} ${buttonClassName}`}>{children}</button>)
     
     } else {
       console.error("PillButton requires either to or onClick")
